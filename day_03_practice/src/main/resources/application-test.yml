@@ -1,0 +1,24 @@
+server:
+  port: 8082
+
+spring:
+  profiles: test
+
+# test环境使用固定值（多分支测试数据）
+teacher:
+  name: 李老师
+  gender: 女
+  age: 40
+  students:
+    - name: 测试学生1
+      gender: 男
+      age: 16
+      chinese: 85
+      math: 90
+      english: 88
+    - name: 测试学生2
+      gender: 女
+      age: 17
+      chinese: 78
+      math: 82
+      english: 95

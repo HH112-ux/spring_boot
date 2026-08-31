@@ -1,0 +1,24 @@
+server:
+  port: 8083
+
+spring:
+  profiles: prod
+
+# prod环境使用核心数据
+teacher:
+  name: 王老师
+  gender: 男
+  age: 45
+  students:
+    - name: 正式学生1
+      gender: 男
+      age: 18
+      chinese: 90
+      math: 95
+      english: 98
+    - name: 正式学生2
+      gender: 女
+      age: 17
+      chinese: 88
+      math: 92
+      english: 96

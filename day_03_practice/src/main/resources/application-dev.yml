@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  profiles: dev
+
+# dev环境使用随机数
+teacher:
+  name: 张老师
+  gender: 男
+  age: 35
+  students:
+    - name: 学生1
+      gender: 男
+      age: ${random.int[15,18]}
+      chinese: ${random.int[60,90]}
+      math: ${random.int[70,90]}
+      english: ${random.int[80,100]}
+    - name: 学生2
+      gender: 女
+      age: ${random.int[15,18]}
+      chinese: ${random.int[60,90]}
+      math: ${random.int[70,90]}
+      english: ${random.int[80,100]}

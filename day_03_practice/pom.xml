@@ -2,40 +2,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.4</version>
+        <groupId>org.example</groupId>
+        <artifactId>springboot</artifactId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>org.example</groupId>
-    <artifactId>springboot</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>day_01_springboot_creat_1</module>
-        <module>day_01_springboot_creat2</module>
-        <module>day_01_spring_boot_create3</module>
-        <module>day_02_spring_boot_configFile</module>
-        <module>day_02_spring_boot_swagger</module>
-        <module>day_02_practice</module>
-        <module>day_03_spring_boot_yaml</module>
-        <module>day_03_practice</module>
-        <module>day_04_spring_boot_junit</module>
-        <module>day_04_spring_boot_mybatis</module>
-    </modules>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>day_03_practice</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <lombok.version>1.18.46</lombok.version>
-        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
     </properties>
+
     <dependencies>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
@@ -45,12 +34,16 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <release>17</release>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                             <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-configuration-processor</artifactId>
+                            <version>2.6.4</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
