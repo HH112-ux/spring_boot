@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+users:
+  customer:
+    url: localhost:${server.port}
+
+teacher:
+  id: ${random.uuid}
+  age: ${random.int(30,50)}
+  num1: ${random.int}
+  numlong1: ${random.long}
+  numlong2: ${random.long(10,20)}
+  value: ${random.value}

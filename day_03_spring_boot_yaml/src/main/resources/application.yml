@@ -1,0 +1,36 @@
+sysUser: 张三
+age: 20
+money: 123.45
+birth: 1999/12/12
+
+com:
+  jh:
+    model:
+      users:
+        USER_NAME: 王五
+        gender: 男
+        age: 22
+        money: 234.22
+        birth: 1999/12/23
+        likes:
+          - 打球
+          - 游泳
+          - 游戏
+        list: [ aa,bb,cc ]
+        set: [ xxx,yyy,zzz ]
+        map:
+          k1: v1
+          k2: v2
+        map1: { k1: v1,k2: v2,k3: v3 }
+        stuList:
+          - name: "学生1"
+            age: 20
+          - name: 学生2
+            age: 21
+        stuList1:
+          - {name: 学生3,age: 22}
+          - {name: 学生4,age: 25}
+
+spring:
+  profiles:
+    active: dev
