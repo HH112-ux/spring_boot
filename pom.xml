@@ -18,14 +18,15 @@
         <module>day_01_spring_boot_create3</module>
         <module>day_02_spring_boot_configFile</module>
         <module>day_02_spring_boot_swagger</module>
+        <module>day_02_practice</module>
         <module>day_03_spring_boot_yaml</module>
         <module>day_04_spring_boot_junit</module>
         <module>day_04_spring_boot_mybatis</module>
     </modules>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.18.46</lombok.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
@@ -43,7 +44,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <release>11</release>
+                    <release>17</release>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>

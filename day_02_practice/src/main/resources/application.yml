@@ -1,0 +1,12 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  # 任务3：配置 springboot 自动重启
+  devtools:
+    restart:
+      enabled: true
+      exclude: static/**,public/**,templates/**
+
+server:
+  port: 8080
