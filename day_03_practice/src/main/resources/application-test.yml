@@ -2,9 +2,11 @@ server:
   port: 8082
 
 spring:
-  profiles: test
+  config:
+    activate:
+      on-profile: test
 
-# test环境使用固定值（多分支测试数据）
+
 teacher:
   name: 李老师
   gender: 女

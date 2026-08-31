@@ -2,7 +2,9 @@ server:
   port: 8083
 
 spring:
-  profiles: prod
+  config:
+    activate:
+      on-profile: prod
 
 # prod环境使用核心数据
 teacher:

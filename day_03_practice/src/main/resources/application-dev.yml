@@ -2,7 +2,9 @@ server:
   port: 8081
 
 spring:
-  profiles: dev
+  config:
+    activate:
+      on-profile: dev
 
 # dev环境使用随机数
 teacher:
