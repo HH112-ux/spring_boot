@@ -23,6 +23,7 @@
         <module>day_03_practice</module>
         <module>day_04_spring_boot_junit</module>
         <module>day_04_spring_boot_mybatis</module>
+        <module>day_04_practice</module>
     </modules>
 
     <properties>
