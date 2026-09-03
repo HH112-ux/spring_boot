@@ -17,11 +17,17 @@
     </properties>
 
     <dependencies>
-        <!--mybatis-plus（包含mybatis）-->
+        <!--mybatis-plus（包含mybatis，自动配置SqlSessionFactory）-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.5.1</version>
+        </dependency>
+        <!--mybatis-spring-boot-autoconfigure（PageHelper需要引用MybatisAutoConfiguration）-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-autoconfigure</artifactId>
+            <version>2.2.2</version>
         </dependency>
         <!--分页插件-->
         <dependency>
