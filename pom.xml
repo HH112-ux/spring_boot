@@ -26,6 +26,7 @@
         <module>day_04_practice</module>
         <module>day_05_spring_boot_mybatis_plus</module>
         <module>day_05_practice</module>
+        <module>day_06_practice</module>
     </modules>
 
     <properties>
