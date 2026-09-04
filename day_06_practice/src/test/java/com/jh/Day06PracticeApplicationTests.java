@@ -3,58 +3,74 @@ package com.jh;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jh.entity.Employee;
-import com.jh.service.EmployeeService;
+import com.jh.mapper.EmployeeMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @SpringBootTest
 class Day06PracticeApplicationTests {
 
     @Resource
-    private EmployeeService employeeService;
+    private EmployeeMapper mapper;
 
-    // 任务一：22-30岁男性员工
+    // 任务一：查询所有年龄在22到30岁的男性员工信息
     @Test
-    void test1() {
+    void task1() {
         QueryWrapper<Employee> wrapper = new QueryWrapper<>();
-        wrapper.between("age", 22, 30).eq("gender", "男");
-        employeeService.list(wrapper).forEach(System.out::println);
+        wrapper.between("age", 22, 30)
+                .eq("gender", "男");
+        List<Employee> list = mapper.selectList(wrapper);
+        list.forEach(System.out::println);
+        System.out.println("共查询到 " + list.size() + " 条记录");
     }
 
-    // 任务二：市场部或销售部女性员工
+    // 任务二：查询市场部或者是销售部的女性员工信息
     @Test
-    void test2() {
+    void task2() {
         QueryWrapper<Employee> wrapper = new QueryWrapper<>();
-        wrapper.eq("gender", "女").in("dept_name", "市场部", "销售部");
-        employeeService.list(wrapper).forEach(System.out::println);
+        wrapper.eq("gender", "女")
+                .in("dept_name", "市场部", "销售部");
+        List<Employee> list = mapper.selectList(wrapper);
+        list.forEach(System.out::println);
+        System.out.println("共查询到 " + list.size() + " 条记录");
     }
 
-    // 任务三：长春且休息状态
+    // 任务三：查询地址在长春且工作状态是休息的员工信息
     @Test
-    void test3() {
+    void task3() {
         QueryWrapper<Employee> wrapper = new QueryWrapper<>();
-        wrapper.eq("addr", "长春市").eq("status", 1);
-        employeeService.list(wrapper).forEach(System.out::println);
+        wrapper.eq("addr", "长春市")
+                .eq("status", 1);
+        List<Employee> list = mapper.selectList(wrapper);
+        list.forEach(System.out::println);
+        System.out.println("共查询到 " + list.size() + " 条记录");
     }
 
-    // 任务四：登录帐号含admin且(男或人事部)
+    // 任务四：查询所有登录帐号中包含admin字样，且(性别是男或者部门是人事部)
     @Test
-    void test4() {
+    void task4() {
         QueryWrapper<Employee> wrapper = new QueryWrapper<>();
         wrapper.like("login_name", "admin")
-               .and(w -> w.eq("gender", "男").or().eq("dept_name", "人事部"));
-        employeeService.list(wrapper).forEach(System.out::println);
+                .and(w -> w.eq("gender", "男").or().eq("dept_name", "人事部"));
+        List<Employee> list = mapper.selectList(wrapper);
+        list.forEach(System.out::println);
+        System.out.println("共查询到 " + list.size() + " 条记录");
     }
 
-    // 任务五：按年龄降序分页每页5条
+    // 任务五：查询所有员工信息，按年龄降序排列，分页显示，每页5条
     @Test
-    void test5() {
+    void task5() {
         Page<Employee> page = new Page<>(1, 5);
         QueryWrapper<Employee> wrapper = new QueryWrapper<>();
         wrapper.orderByDesc("age");
-        employeeService.page(page, wrapper).getRecords().forEach(System.out::println);
-        System.out.println("总记录数：" + page.getTotal() + " 总页数：" + page.getPages());
+        mapper.selectPage(page, wrapper);
+        List<Employee> records = page.getRecords();
+        records.forEach(System.out::println);
+        System.out.println("总记录数：" + page.getTotal() + "\t总页数：" + page.getPages()
+                + "\t当前页：" + page.getCurrent() + "\t每页显示" + page.getSize() + "条数据\t"
+                + "是否有上一页：" + page.hasPrevious() + "\t是否有下一页：" + page.hasNext());
     }
 }
