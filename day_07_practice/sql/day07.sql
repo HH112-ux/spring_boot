@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS user_account (
     version INT         DEFAULT 0  COMMENT '版本号'
 ) COMMENT '用户账户表';
 
-INSERT INTO user_account (id, name, balance, version) VALUES
+REPLACE INTO user_account (id, name, balance, version) VALUES
 (1, '张三', 1000, 0),
 (2, '李四', 2000, 0),
 (3, '王五', 3000, 0);
